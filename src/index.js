@@ -4,9 +4,10 @@ import {Provider} from 'react-redux';
 import './index.css';
 import TestForm from './Form';
 import registerServiceWorker from './registerServiceWorker';
+import store from './store';
 
 ReactDOM.render(
-<Provider>
+<Provider store= {store}>
     <TestForm />
 </Provider>
 

@@ -1,14 +1,19 @@
 import React from 'react';
+import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 
 
-export default class TestForm extends React.Component {
-
+export class TestForm extends React.Component {
+    onSubmit(values){
+        console.log(values)
+    }
 
 
     render(){
         return(
         <div className='delivery-form'>
-            <form>
+            <form
+                onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+            >
                 <div className='form-input'>
                     <label for='trackingNumber'>Tracking Number</label>
                     <input name='trackingNumber' value id='trackingNumber'></input>
@@ -35,5 +40,7 @@ export default class TestForm extends React.Component {
 
 }
 
-
+export default reduxForm({
+    form: 'return'
+})(TestForm);
 
