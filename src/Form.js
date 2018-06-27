@@ -1,7 +1,7 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-
+import {required, nonEmpty, lenFive, onlyNum} from './validators';
 
 
 export class TestForm extends React.Component {
@@ -21,6 +21,7 @@ export class TestForm extends React.Component {
                     type= 'text'
                     component= {Input}
                     label= 'trackingNumber'
+                    validate = {[required, nonEmpty, lenFive, onlyNum]}
                 />
                 <div className='form-input'>
                     <label for='issue'>issue</label>
